@@ -1,0 +1,462 @@
+/* ============================================================
+   ಭಗವದ್ಗೀತಾ ಪಯಣ — design tokens
+   Palette: dawn-temple — warm light, deep maroon ink, marigold
+   accent, sage calm accent. Not the generic cream/terracotta combo.
+   Type: Fraunces (EN display serif) + Noto Serif Kannada (KN display)
+         Inter (EN body) + Noto Sans Kannada (KN body)
+         Noto Serif Devanagari (Sanskrit chant, rendered in Kannada script)
+   ============================================================ */
+
+:root{
+  --bg:            #FBF4E6;
+  --bg-deep:       #F3E8D2;
+  --panel:         #FFFDF7;
+  --ink:           #2B1912;
+  --ink-soft:      #5B4536;
+  --maroon:        #7A1F2B;
+  --maroon-deep:   #591520;
+  --gold:          #B9812C;
+  --gold-bright:   #D9A441;
+  --sage:          #4C6F5C;
+  --sage-bg:       #EAF1EB;
+  --rule:          #E3D3AE;
+  --shadow:        0 18px 40px -22px rgba(89, 21, 32, 0.35);
+  --radius-soft:   4px;
+  --max-w:         760px;
+}
+
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 15% 0%, rgba(217,164,65,0.14), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 100% 10%, rgba(122,31,43,0.08), transparent 55%);
+  color: var(--ink);
+  font-family: "Inter", "Noto Sans Kannada", sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kn{ font-family: "Noto Sans Kannada", "Inter", sans-serif; }
+.kn-serif{ font-family: "Noto Serif Kannada", "Noto Serif", serif; }
+.en-display{ font-family: "Fraunces", serif; }
+.chant{ font-family: "Noto Serif Kannada", "Noto Serif", serif; }
+
+a{ color: inherit; }
+
+::selection{ background: var(--gold-bright); color: var(--maroon-deep); }
+
+/* ---------- top ornament ---------- */
+.ornament-rule{
+  height: 10px;
+  width: 100%;
+  background:
+    linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-bright) 50%, var(--gold) 80%, transparent);
+  opacity: 0.85;
+}
+
+/* ---------- shell ---------- */
+.shell{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px 120px;
+}
+
+header.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--maroon-deep);
+}
+
+.brand svg{ width: 26px; height: 26px; flex: none; }
+
+.brand-text{
+  font-family:"Fraunces", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+}
+.brand-text .kn{ display:block; font-size: 0.78em; color: var(--ink-soft); margin-top:-2px; }
+
+.header-link{
+  font-size: 0.92rem;
+  text-decoration: none;
+  color: var(--maroon);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+}
+
+/* ============================================================
+   HOME PAGE
+   ============================================================ */
+
+.hero{
+  padding: 48px 0 40px;
+  text-align: center;
+}
+
+.hero-sigil{
+  width: 68px; height: 68px;
+  margin: 0 auto 28px;
+  opacity: 0.92;
+}
+
+.hero h1{
+  font-family: "Fraunces", serif;
+  font-weight: 560;
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  color: var(--maroon-deep);
+  margin: 0 0 8px;
+  line-height: 1.15;
+}
+
+.hero .hero-kn{
+  font-family: "Noto Serif Kannada", serif;
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  color: var(--maroon);
+  display:block;
+  margin-bottom: 18px;
+}
+
+.hero p.lede{
+  max-width: 540px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 1.04rem;
+}
+
+.hero p.lede .kn{ display:block; margin-top:6px; font-size: 1.02rem; }
+
+.cta-row{
+  margin-top: 30px;
+  display:flex;
+  gap: 14px;
+  justify-content:center;
+  flex-wrap: wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 13px 26px;
+  border-radius: var(--radius-soft);
+  text-decoration:none;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: var(--maroon);
+  color: #FBF4E6;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover{ background: var(--maroon-deep); }
+
+.btn-ghost{
+  background: transparent;
+  color: var(--maroon);
+  border-color: var(--gold);
+}
+.btn-ghost:hover{ background: rgba(185,129,44,0.08); }
+
+/* ---------- the journey path ---------- */
+.path{
+  margin-top: 64px;
+  position: relative;
+}
+
+.path::before{
+  content:"";
+  position:absolute;
+  left: 23px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(var(--rule), var(--rule) 70%, transparent);
+}
+
+.path-item{
+  position:relative;
+  display:flex;
+  gap: 20px;
+  padding: 16px 0;
+  text-decoration:none;
+  color: inherit;
+  align-items: flex-start;
+}
+
+.path-num{
+  flex: none;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1.5px solid var(--gold);
+  color: var(--maroon-deep);
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 1.05rem;
+  z-index: 1;
+}
+
+.path-body{ padding-top: 4px; }
+
+.path-chapter-en{
+  font-family: "Fraunces", serif;
+  font-size: 1.12rem;
+  color: var(--maroon-deep);
+  margin: 0;
+}
+.path-chapter-kn{
+  font-family: "Noto Serif Kannada", serif;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 2px 0 0;
+}
+.path-verse-tag{
+  display:inline-block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--sage);
+  letter-spacing: 0.02em;
+}
+
+.path-item:hover .path-num{
+  background: var(--gold);
+  color: #FBF4E6;
+}
+
+/* ---------- about strip ---------- */
+.about-strip{
+  margin-top: 72px;
+  padding: 26px 26px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-soft);
+}
+.about-strip h2{
+  font-family:"Fraunces", serif;
+  font-size: 1.1rem;
+  color: var(--maroon-deep);
+  margin: 0 0 8px;
+}
+.about-strip p{
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 6px 0;
+}
+
+footer.site-footer{
+  text-align:center;
+  padding: 36px 24px 50px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   SHLOKA (verse) PAGE
+   ============================================================ */
+
+.progress-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 6px;
+  padding: 6px 24px 0;
+  flex-wrap: wrap;
+}
+.dot{
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--rule);
+  flex: none;
+}
+.dot.is-active{ background: var(--maroon); width:9px; height:9px; }
+.dot.is-done{ background: var(--gold); }
+
+.crumb{
+  text-align:center;
+  margin: 18px 0 6px;
+  color: var(--sage);
+  font-size: 0.85rem;
+}
+
+.verse-header{
+  text-align:center;
+  margin: 6px 0 36px;
+}
+.verse-header h1{
+  font-family: "Fraunces", serif;
+  color: var(--maroon-deep);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 6px 0 2px;
+}
+.verse-header .kn-title{
+  font-family: "Noto Serif Kannada", serif;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+.verse-ref{
+  display:inline-block;
+  margin-top:10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 3px 12px;
+  border-radius: 999px;
+}
+
+/* chant panel */
+.chant-panel{
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding: 34px 10px;
+  text-align:center;
+  margin-bottom: 40px;
+}
+.chant-panel .chant{
+  white-space: pre-line;
+  font-size: clamp(1.25rem, 3.6vw, 1.6rem);
+  color: var(--maroon-deep);
+  line-height: 1.9;
+}
+.chant-label{
+  font-size: 0.78rem;
+  color: var(--sage);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* meaning columns */
+.meaning-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 44px;
+}
+@media (max-width: 620px){
+  .meaning-grid{ grid-template-columns: 1fr; gap: 20px; }
+}
+
+.meaning-col{
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-soft);
+  padding: 22px 22px;
+}
+.meaning-col .col-label{
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.meaning-col p{ margin: 0; color: var(--ink); }
+.meaning-col.kn p{ font-family:"Noto Sans Kannada", sans-serif; font-size: 1.03rem; }
+
+/* explanation */
+.section-block{ margin-bottom: 40px; }
+.section-title{
+  font-family: "Fraunces", serif;
+  color: var(--maroon-deep);
+  font-size: 1.2rem;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.explain-pair p{ margin: 0 0 14px; color: var(--ink-soft); }
+.explain-pair .kn{ font-size: 1.02rem; color: var(--ink); }
+.explain-pair .lang-tag{
+  font-size: 0.72rem; color: var(--sage); display:block; margin-bottom:4px;
+}
+
+/* life hack callout */
+.lifehack{
+  background: var(--sage-bg);
+  border-left: 3px solid var(--sage);
+  border-radius: var(--radius-soft);
+  padding: 22px 24px;
+}
+.lifehack-head{
+  display:flex; align-items:center; gap:10px;
+  margin-bottom: 12px;
+}
+.lifehack-head svg{ width:20px; height:20px; flex:none; color: var(--sage); }
+.lifehack-head span{
+  font-family:"Fraunces", serif;
+  color: var(--sage);
+  font-size: 1.02rem;
+}
+.lifehack p{ margin: 0 0 10px; color: var(--ink); }
+.lifehack .kn{ font-size: 1.01rem; }
+.lifehack p:last-child{ margin-bottom:0; }
+
+.no-lifehack{
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 0.92rem;
+}
+
+/* ---------- nav footer ---------- */
+.verse-nav{
+  display:flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 56px;
+}
+
+.nav-btn{
+  flex: 1;
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration:none;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-soft);
+  color: var(--ink);
+  transition: border-color .15s ease;
+}
+.nav-btn:hover{ border-color: var(--gold); }
+.nav-btn.next{ text-align: right; align-items: flex-end; }
+.nav-btn .nav-dir{ font-size: 0.72rem; color: var(--sage); }
+.nav-btn .nav-title{ font-family:"Fraunces", serif; color: var(--maroon-deep); font-size:1rem; }
+.nav-btn.disabled{ opacity: 0.35; pointer-events:none; }
+
+.back-home{
+  text-align:center;
+  margin-top: 28px;
+}
+.back-home a{
+  font-size: 0.88rem;
+  color: var(--sage);
+  text-decoration:none;
+  border-bottom: 1px solid var(--rule);
+}
+
+@media (max-width: 480px){
+  .verse-nav{ flex-direction:column; }
+  .nav-btn.next{ text-align:left; align-items:flex-start; }
+}

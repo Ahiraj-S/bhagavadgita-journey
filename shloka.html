@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ಶ್ಲೋಕ · Bhagavad Gita Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,560;9..144,650&family=Inter:wght@400;500;600&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ornament-rule"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="22" stroke="#B9812C" stroke-width="1.4"/>
+      <circle cx="24" cy="24" r="4.5" fill="#7A1F2B"/>
+      <path d="M24 9 L24 15.5 M24 32.5 L24 39 M9 24 L15.5 24 M32.5 24 L39 24" stroke="#B9812C" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-text">Bhagavad Gita Journey<span class="kn">ಭಗವದ್ಗೀತಾ ಪಯಣ</span></span>
+  </a>
+  <a class="header-link" href="index.html">ಎಲ್ಲಾ ಅಧ್ಯಾಯಗಳು · All Chapters</a>
+</header>
+
+<div class="progress-row" id="progressRow"></div>
+
+<main class="shell">
+
+  <p class="crumb" id="crumb"></p>
+
+  <section class="verse-header">
+    <h1 id="chapterEn"></h1>
+    <p class="kn-title" id="chapterKn"></p>
+    <span class="verse-ref" id="verseRef"></span>
+  </section>
+
+  <section class="chant-panel">
+    <p class="chant-label">ಪಠಣ · Chant</p>
+    <p class="chant" id="chant"></p>
+  </section>
+
+  <section class="meaning-grid">
+    <div class="meaning-col kn">
+      <p class="col-label">ಸರಳ ಅರ್ಥ · ಕನ್ನಡ</p>
+      <p id="meaningKn"></p>
+    </div>
+    <div class="meaning-col">
+      <p class="col-label">SIMPLE MEANING · ENGLISH</p>
+      <p id="meaningEn"></p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <h2 class="section-title">ಕಥೆ ಹೇಳುತ್ತದೆ · What's Happening Here</h2>
+    <div class="explain-pair">
+      <span class="lang-tag">ಕನ್ನಡದಲ್ಲಿ</span>
+      <p class="kn" id="explainKn"></p>
+      <span class="lang-tag">In plain English</span>
+      <p id="explainEn"></p>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="lifehack" id="lifehackBox">
+      <div class="lifehack-head">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.6.45.9 1.15.9 1.9V16h5.4v-.3c0-.75.3-1.45.9-1.9A6 6 0 0012 3z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>ಜೀವನ ಪಾಠ · Life Lesson</span>
+      </div>
+      <p class="kn" id="lifehackKn"></p>
+      <p id="lifehackEn"></p>
+    </div>
+  </section>
+
+  <nav class="verse-nav">
+    <a class="nav-btn prev" id="prevBtn">
+      <span class="nav-dir">← ಹಿಂದಿನದು · Previous</span>
+      <span class="nav-title" id="prevTitle"></span>
+    </a>
+    <a class="nav-btn next" id="nextBtn">
+      <span class="nav-dir">ಮುಂದಿನದು · Next →</span>
+      <span class="nav-title" id="nextTitle"></span>
+    </a>
+  </nav>
+
+  <p class="back-home"><a href="index.html">ಎಲ್ಲಾ ಅಧ್ಯಾಯಗಳಿಗೆ ಹಿಂತಿರುಗಿ · Back to all chapters</a></p>
+
+</main>
+
+<footer class="site-footer">
+  ಓಂ ಶಾಂತಿಃ ಶಾಂತಿಃ ಶಾಂತಿಃ
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  let idx = parseInt(params.get('v'), 10);
+  if (isNaN(idx) || idx < 0 || idx >= GITA_DATA.length) idx = 0;
+  const v = GITA_DATA[idx];
+
+  document.title = `${v.verseRef} · ${v.chapterTitleEn} · Bhagavad Gita Journey`;
+
+  document.getElementById('crumb').textContent = `Chapter ${v.chapter} of 18 · ಅಧ್ಯಾಯ ${v.chapter} / 18`;
+  document.getElementById('chapterEn').textContent = v.chapterTitleEn;
+  document.getElementById('chapterKn').textContent = v.chapterTitleKn;
+  document.getElementById('verseRef').textContent = `ಶ್ಲೋಕ ${v.verseRef}`;
+  document.getElementById('chant').textContent = v.kannadaChant;
+  document.getElementById('meaningKn').textContent = v.meaningKn;
+  document.getElementById('meaningEn').textContent = v.meaningEn;
+  document.getElementById('explainKn').textContent = v.explanationKn;
+  document.getElementById('explainEn').textContent = v.explanationEn;
+
+  if (v.lifeHackKn && v.lifeHackEn) {
+    document.getElementById('lifehackKn').textContent = v.lifeHackKn;
+    document.getElementById('lifehackEn').textContent = v.lifeHackEn;
+  } else {
+    document.getElementById('lifehackBox').innerHTML =
+      '<div class="lifehack-head"><span>ಜೀವನ ಪಾಠ · Life Lesson</span></div><p class="no-lifehack">This verse sets the scene — the life lesson builds as the story continues. · ಈ ಶ್ಲೋಕ ಕಥೆಯ ಹಿನ್ನೆಲೆ ನೀಡುತ್ತದೆ.</p>';
+  }
+
+  // progress dots
+  const progressRow = document.getElementById('progressRow');
+  GITA_DATA.forEach((_, i) => {
+    const d = document.createElement('span');
+    d.className = 'dot' + (i === idx ? ' is-active' : (i < idx ? ' is-done' : ''));
+    progressRow.appendChild(d);
+  });
+
+  // prev / next
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (idx > 0) {
+    const p = GITA_DATA[idx - 1];
+    prevBtn.href = `shloka.html?v=${idx - 1}`;
+    document.getElementById('prevTitle').textContent = `${p.chapterTitleEn}`;
+  } else {
+    prevBtn.classList.add('disabled');
+    document.getElementById('prevTitle').textContent = '—';
+  }
+
+  if (idx < GITA_DATA.length - 1) {
+    const n = GITA_DATA[idx + 1];
+    nextBtn.href = `shloka.html?v=${idx + 1}`;
+    document.getElementById('nextTitle').textContent = `${n.chapterTitleEn}`;
+  } else {
+    nextBtn.classList.add('disabled');
+    document.getElementById('nextTitle').textContent = 'ಪಯಣ ಪೂರ್ಣ · Journey Complete';
+  }
+
+  window.scrollTo(0,0);
+</script>
+</body>
+</html>

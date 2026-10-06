@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ಭಗವದ್ಗೀತಾ ಪಯಣ · Bhagavad Gita Journey</title>
+<meta name="description" content="Learn the Bhagavad Gita, one verse at a time — chant in Kannada, simple meaning in Kannada and English, and a life lesson from every shloka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,560;9..144,650&family=Inter:wght@400;500;600&family=Noto+Sans+Kannada:wght@400;500;600&family=Noto+Serif+Kannada:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ornament-rule"></div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="22" stroke="#B9812C" stroke-width="1.4"/>
+      <circle cx="24" cy="24" r="4.5" fill="#7A1F2B"/>
+      <path d="M24 9 L24 15.5 M24 32.5 L24 39 M9 24 L15.5 24 M32.5 24 L39 24" stroke="#B9812C" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M14.5 14.5 L18.5 18.5 M29.5 29.5 L33.5 33.5 M33.5 14.5 L29.5 18.5 M18.5 29.5 L14.5 33.5" stroke="#B9812C" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+    <span class="brand-text">Bhagavad Gita Journey<span class="kn">ಭಗವದ್ಗೀತಾ ಪಯಣ</span></span>
+  </a>
+  <a class="header-link" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+</header>
+
+<main class="shell">
+
+  <section class="hero">
+    <svg class="hero-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 6 C28 14 34 16 34 24 C34 32 29.5 38 24 42 C18.5 38 14 32 14 24 C14 16 20 14 24 6 Z" stroke="#7A1F2B" stroke-width="1.3"/>
+      <circle cx="24" cy="24" r="3" fill="#D9A441"/>
+    </svg>
+    <h1>The Bhagavad Gita,<br>one verse at a time</h1>
+    <span class="hero-kn">ಭಗವದ್ಗೀತೆ, ಒಂದೊಂದೇ ಶ್ಲೋಕದಲ್ಲಿ</span>
+    <p class="lede">
+      Eighteen chapters, eighteen essence-verses — each with the chant in Kannada, a simple meaning in Kannada and English, and the one life lesson worth carrying with you.
+      <span class="kn">ಹದಿನೆಂಟು ಅಧ್ಯಾಯಗಳು, ಹದಿನೆಂಟು ಶ್ಲೋಕಗಳು — ಕನ್ನಡ ಪಠಣ, ಸರಳ ಅರ್ಥ ಮತ್ತು ಒಂದು ಜೀವನ ಪಾಠದೊಂದಿಗೆ.</span>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="shloka.html?v=0">ಪಯಣ ಆರಂಭಿಸಿ · Begin the Journey</a>
+      <a class="btn btn-ghost" href="#path">ಎಲ್ಲಾ ಅಧ್ಯಾಯಗಳು · All Chapters</a>
+    </div>
+  </section>
+
+  <section class="path" id="path">
+    <!-- path items injected by script -->
+  </section>
+
+  <section class="about-strip">
+    <h2>About this journey · ಈ ಪಯಣದ ಬಗ್ಗೆ</h2>
+    <p>This site walks through one carefully chosen verse from each of the Gita's eighteen chapters — the line that carries that chapter's heart. It's a starting point, not the full 700 verses; the page structure is built so more shlokas can be added chapter by chapter over time.</p>
+    <p class="kn">ಈ ವೆಬ್‌ಸೈಟ್ ಗೀತೆಯ ಹದಿನೆಂಟು ಅಧ್ಯಾಯಗಳಿಂದ ಎಚ್ಚರಿಕೆಯಿಂದ ಆರಿಸಿದ ಒಂದೊಂದು ಶ್ಲೋಕದ ಮೂಲಕ ಸಾಗುತ್ತದೆ — ಆ ಅಧ್ಯಾಯದ ಹೃದಯವನ್ನು ಹಿಡಿದಿಟ್ಟ ಸಾಲು. ಇದು ಒಂದು ಆರಂಭ, 700 ಶ್ಲೋಕಗಳ ಪೂರ್ಣ ಪಟ್ಟಿ ಅಲ್ಲ.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  ಓಂ ಶಾಂತಿಃ ಶಾಂತಿಃ ಶಾಂತಿಃ · Built with reverence, for learning.
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const pathEl = document.getElementById('path');
+  GITA_DATA.forEach((v, i) => {
+    const a = document.createElement('a');
+    a.className = 'path-item';
+    a.href = `shloka.html?v=${i}`;
+    a.innerHTML = `
+      <span class="path-num">${v.chapter}</span>
+      <span class="path-body">
+        <p class="path-chapter-en">${v.chapterTitleEn}</p>
+        <p class="path-chapter-kn kn-serif">${v.chapterTitleKn}</p>
+        <span class="path-verse-tag">Shloka ${v.verseRef}</span>
+      </span>
+    `;
+    pathEl.appendChild(a);
+  });
+</script>
+</body>
+</html>
